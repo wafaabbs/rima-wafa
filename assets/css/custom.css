@@ -14,8 +14,75 @@
   opacity: .65;
 }
 
+/* monogram section Ar-Rum: nama lengkap, tetap satu baris */
+.elementor-28049 .elementor-element.elementor-element-4b6b728e .elementor-heading-title,
+.elementor-28049 .elementor-element.elementor-element-591191a3 .elementor-heading-title {
+  font-size: 40px;
+  white-space: nowrap;
+}
+
+.elementor-28049 .elementor-element.elementor-element-434c3e48 .elementor-heading-title {
+  font-size: 32px;
+}
+
+.elementor-28049 .elementor-element.elementor-element-4b6b728e > .elementor-widget-container,
+.elementor-28049 .elementor-element.elementor-element-591191a3 > .elementor-widget-container {
+  margin: 0 8px;
+}
+
 .rw-hold {
   visibility: hidden;
+}
+
+/* ---------- Galeri 4 foto ---------- */
+/* kolom kiri: landscape+portrait, kanan: portrait+landscape -> tinggi kedua kolom sama persis */
+.rw-gallery {
+  --rw-gap: 10px;
+  display: flex;
+  gap: var(--rw-gap);
+  align-items: flex-start;
+}
+
+.rw-gcol {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rw-gap);
+}
+
+.rw-gitem {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.rw-land { aspect-ratio: 3 / 2; }
+.rw-port { aspect-ratio: 2 / 3; }
+
+.rw-gimg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.rw-gitem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  opacity: 0;
+  transition: opacity .8s;
+}
+
+.rw-gitem:hover::after,
+.rw-gitem:focus::after { opacity: 1; }
+
+@media (max-width: 767px) {
+  .rw-gallery { --rw-gap: 5px; }
 }
 
 /* foto yang rasionya jauh beda dari frame: zoom out sambil geser pelan */

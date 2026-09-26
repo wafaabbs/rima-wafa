@@ -56,7 +56,7 @@
   }, { rootMargin: '200px' }) : null;
 
   function scan() {
-    var nodes = document.querySelectorAll('.elementor-background-overlay, .elementor-motion-effects-layer, .elementor-section, .elementor-column, .elementor-widget-wrap, .e-gallery-image');
+    var nodes = document.querySelectorAll('.elementor-background-overlay, .elementor-motion-effects-layer, .elementor-section, .elementor-column, .elementor-widget-wrap, .e-gallery-image, .rw-gimg');
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
       if (seen.has(el)) continue;
