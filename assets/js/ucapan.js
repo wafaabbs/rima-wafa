@@ -247,6 +247,9 @@
       setStatus('Terima kasih atas ucapannya!');
       scheduleRender();
       return true;
+    }).catch(function () {
+      setStatus('Gagal mengirim. Periksa koneksi lalu coba lagi.', true);
+      return false;
     });
   }
 
@@ -260,7 +263,7 @@
       var w = wishes.get(id);
       if (w) w.like_count = r.like_count;
       scheduleRender();
-    });
+    }).catch(function () { btn.disabled = false; });
   }
 
   els.message.addEventListener('input', function () {
@@ -289,6 +292,8 @@
       res[0].data.forEach(function (w) { wishes.set(w.id, w); });
       (res[1].data || []).forEach(function (id) { liked.add(id); });
       render();
+    }).catch(function () {
+      setStatus('Ucapan belum bisa dimuat.', true);
     });
   }
 

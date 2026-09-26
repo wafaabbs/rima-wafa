@@ -36,12 +36,10 @@
 
       var scale = Math.max(box.width / img.w, box.height / img.h);
       var cw = img.w * scale, ch = img.h * scale;
-      var wide = ratio >= MISMATCH;
-
       el.style.setProperty('--kb-s0', (cw * ZOOM).toFixed(1) + 'px ' + (ch * ZOOM).toFixed(1) + 'px');
       el.style.setProperty('--kb-s1', cw.toFixed(1) + 'px ' + ch.toFixed(1) + 'px');
-      el.style.setProperty('--kb-p0', wide ? '0% 50%' : '50% 0%');
-      el.style.setProperty('--kb-p1', wide ? '100% 50%' : '50% 100%');
+      el.style.setProperty('--kb-p0', '50% 50%');
+      el.style.setProperty('--kb-p1', '50% 50%');
       el.classList.add('rw-kb');
     });
   }

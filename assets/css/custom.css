@@ -85,9 +85,9 @@
   .rw-gallery { --rw-gap: 5px; }
 }
 
-/* foto yang rasionya jauh beda dari frame: zoom out sambil geser pelan */
+/* Foto zoom out perlahan dengan titik fokus tetap di tengah */
 .rw-kb {
-  animation: rw-kb 16s ease-in-out infinite alternate;
+  animation: rw-kb 8s ease-in-out infinite alternate;
 }
 
 @keyframes rw-kb {
@@ -373,4 +373,36 @@
   text-align: center;
   font-size: 13px;
   color: var(--rw-muted);
+}
+
+@media (max-width: 767px) {
+  .elementor-28049 .elementor-element.elementor-element-1b263fac .elementor-heading-title {
+    width: 100%;
+    font-size: clamp(10px, 3.3vw, 13px) !important;
+    line-height: 1.5 !important;
+    white-space: nowrap;
+  }
+}
+
+.elementor-28049 .elementor-element.elementor-element-8ae747c img {
+  width: 100px;
+}
+
+.elementor-28049 .elementor-element.elementor-element-45b2a575 .elementor-element-182c0239 {
+  --spacer-size: 250px;
+}
+
+/* Penghalang salin/simpan: teks & gambar tidak bisa diseleksi atau di-drag, kecuali kolom isian */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+img, video {
+  -webkit-user-drag: none;
 }
