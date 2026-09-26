@@ -43,8 +43,7 @@
   var deviceId = store('rw_device_id');
   if (!deviceId) { deviceId = uuid(); store('rw_device_id', deviceId); }
 
-  var guestFromUrl = new URLSearchParams(location.search).get('to');
-  els.name.value = store('rw_name') || (guestFromUrl ? guestFromUrl.slice(0, 50) : '');
+  els.name.value = store('rw_name') || (window.RW_GUEST || '').slice(0, 50);
 
   var wishes = new Map();
   var liked = new Set();

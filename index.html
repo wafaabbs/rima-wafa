@@ -2,6 +2,18 @@
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
 	<meta charset="UTF-8">
+<script id="rw-guest-js">
+(function () {
+  var name = new URLSearchParams(location.search).get('to') || '';
+  if (!name) {
+    var parts = location.pathname.split('/').filter(Boolean);
+    var last = parts.length ? parts[parts.length - 1] : '';
+    try { last = decodeURIComponent(last); } catch (e) {}
+    if (!/^(rima-wafa|index\.html|404\.html)$/i.test(last)) name = last.replace(/[-_+]+/g, ' ');
+  }
+  window.RW_GUEST = name.replace(/\s+/g, ' ').trim().slice(0, 60);
+})();
+</script>
 		        <style type="text/css">
             .cui-comment-text img {
                 max-width: 100% !important;
@@ -17,11 +29,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="With love invite you Rima & Wafa" />
 <meta property="og:description" content="With love invite you Rima & Wafa" />
-<meta property="og:url" content="https://by.memonika.com/demo-art-motion-mansion-garden/" />
-<meta property="og:site_name" content="Memonika" />
+<meta property="og:url" content="https://wafaabbs.github.io/rima-wafa/" />
+<meta property="og:site_name" content="Rima &amp; Wafa" />
 <meta property="og:updated_time" content="2025-12-04T17:00:12+07:00" />
-<meta property="og:image" content="assets/foto/foto1.jpg" />
-<meta property="og:image:secure_url" content="assets/foto/foto1.jpg" />
+<meta property="og:image" content="https://wafaabbs.github.io/rima-wafa/assets/foto/foto1.jpg" />
+<meta property="og:image:secure_url" content="https://wafaabbs.github.io/rima-wafa/assets/foto/foto1.jpg" />
 <meta property="og:image:width" content="1536" />
 <meta property="og:image:height" content="1920" />
 <meta property="og:image:alt" content="With love invite you Rima & Wafa" />
@@ -31,7 +43,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="With love invite you Rima & Wafa" />
 <meta name="twitter:description" content="With love invite you Rima & Wafa" />
-<meta name="twitter:image" content="assets/foto/foto1.jpg" />
+<meta name="twitter:image" content="https://wafaabbs.github.io/rima-wafa/assets/foto/foto1.jpg" />
 <meta name="twitter:label1" content="Time to read" />
 <meta name="twitter:data1" content="2 minutes" />
 <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Person","Organization"],"@id":"https://by.memonika.com/#person","name":"Memonika"},{"@type":"WebSite","@id":"https://by.memonika.com/#website","url":"https://by.memonika.com","name":"Memonika","publisher":{"@id":"https://by.memonika.com/#person"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"assets/foto/foto1.jpg","url":"assets/foto/foto1.jpg","width":"1536","height":"1920","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://by.memonika.com/demo-art-motion-mansion-garden/#webpage","url":"https://by.memonika.com/demo-art-motion-mansion-garden/","name":"With love invite you Rima & Wafa - Memonika","datePublished":"2025-11-18T15:43:24+07:00","dateModified":"2025-12-04T17:00:12+07:00","isPartOf":{"@id":"https://by.memonika.com/#website"},"primaryImageOfPage":{"@id":"assets/foto/foto1.jpg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://by.memonika.com/author/admin/","name":"admin","url":"https://by.memonika.com/author/admin/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/07d6d4dc6cf002d55daf7dd8b874301b2f9b0e6b5b8fd369984a2740545a3554?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/07d6d4dc6cf002d55daf7dd8b874301b2f9b0e6b5b8fd369984a2740545a3554?s=96&amp;d=mm&amp;r=g","caption":"admin","inLanguage":"en-US"},"sameAs":["https://by.memonika.com"]},{"@type":"Article","headline":"With love invite you Rima & Wafa - Memonika","datePublished":"2025-11-18T15:43:24+07:00","dateModified":"2025-12-04T17:00:12+07:00","author":{"@id":"https://by.memonika.com/author/admin/","name":"admin"},"publisher":{"@id":"https://by.memonika.com/#person"},"description":"With love invite you Rima & Wafa","name":"With love invite you Rima & Wafa - Memonika","@id":"https://by.memonika.com/demo-art-motion-mansion-garden/#richSnippet","isPartOf":{"@id":"https://by.memonika.com/demo-art-motion-mansion-garden/#webpage"},"image":{"@id":"assets/foto/foto1.jpg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://by.memonika.com/demo-art-motion-mansion-garden/#webpage"}}]}</script>
@@ -253,10 +265,9 @@ Bapak/Ibu/Saudara/i</h2>				</div>
             </div>
             
             <script>
-const params = new URLSearchParams(document.location.search);
-let to = params.get("to");
+let to = window.RW_GUEST;
 if(to){
-    document.getElementsByClassName("info_tamu")[0].innerHTML = ""+to;
+    document.getElementsByClassName("info_tamu")[0].textContent = to;
     document.getElementsByClassName("info_tamu")[0].style.textAlign="center"
 }
 </script>
