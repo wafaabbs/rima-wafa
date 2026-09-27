@@ -172,6 +172,11 @@ body.rw-menu-on .elementor-element.elementor-element-3d9a2f {
   bottom: calc(82px + env(safe-area-inset-bottom)) !important;
 }
 
+/* Dekatkan logo penutup ke nama pasangan di atasnya. */
+.elementor-28049 .elementor-element.elementor-element-2aec1426 {
+  --spacer-size: 25px;
+}
+
 /* ---------- Ucapan live chat ---------- */
 #rw-wishes {
   --rw-ink: #1d1d1b;
