@@ -301,16 +301,38 @@ body.rw-menu-on .elementor-element.elementor-element-3d9a2f {
   to { opacity: 1; transform: none; }
 }
 
-.rw-replies { margin-top: 10px; }
+.rw-thread { margin-top: 6px; }
+
+.rw-thread-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--rw-muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rw-thread-toggle:hover { color: var(--rw-ink); }
+
+.rw-replies {
+  margin: 7px 0 0 2px;
+  padding-left: 12px;
+  border-left: 1px solid var(--rw-line);
+}
 
 .rw-item.rw-reply {
-  padding: 8px 0 0;
+  padding: 0;
   margin: 0;
   border: 0;
-  border-top: 1px solid var(--rw-line);
   border-radius: 0;
   background: none;
 }
+
+.rw-item.rw-reply + .rw-item.rw-reply { margin-top: 10px; }
 
 .rw-avatar {
   flex: none;

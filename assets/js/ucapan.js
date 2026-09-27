@@ -47,6 +47,7 @@
 
   var wishes = new Map();
   var liked = new Set();
+  var expandedReplies = new Set();
   var openReply = null;
   var lastPost = 0;
 
@@ -114,6 +115,7 @@
     replyBtn.type = 'button';
     replyBtn.addEventListener('click', function () {
       openReply = openReply === parentId ? null : parentId;
+      expandedReplies.add(parentId);
       render();
       var input = els.list.querySelector('.rw-reply-form textarea');
       if (input) input.focus();
@@ -188,10 +190,24 @@
     tops.forEach(function (w) {
       var item = renderItem(w, false);
       var kids = (replies[w.id] || []).sort(byOldest);
-      if (kids.length || openReply === w.id) {
-        var sub = el('ul', 'rw-replies');
-        kids.forEach(function (r) { sub.appendChild(renderItem(r, true)); });
-        item.querySelector('.rw-body').appendChild(sub);
+      if (kids.length) {
+        var expanded = expandedReplies.has(w.id);
+        var thread = el('div', 'rw-thread');
+        var toggle = el('button', 'rw-thread-toggle', expanded ? 'Sembunyikan balasan' : 'Lihat semua ' + kids.length + ' balasan');
+        toggle.type = 'button';
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggle.addEventListener('click', function () {
+          if (expandedReplies.has(w.id)) expandedReplies.delete(w.id);
+          else expandedReplies.add(w.id);
+          render();
+        });
+        thread.appendChild(toggle);
+        if (expanded) {
+          var sub = el('ul', 'rw-replies');
+          kids.forEach(function (r) { sub.appendChild(renderItem(r, true)); });
+          thread.appendChild(sub);
+        }
+        item.querySelector('.rw-body').appendChild(thread);
       }
       if (openReply === w.id) {
         var f = renderReplyForm(w.id);
