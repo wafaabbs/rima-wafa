@@ -34,57 +34,6 @@
   visibility: hidden;
 }
 
-/* ---------- Galeri 4 foto ---------- */
-/* kolom kiri: landscape+portrait, kanan: portrait+landscape -> tinggi kedua kolom sama persis */
-.rw-gallery {
-  --rw-gap: 10px;
-  display: flex;
-  gap: var(--rw-gap);
-  align-items: flex-start;
-}
-
-.rw-gcol {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--rw-gap);
-}
-
-.rw-gitem {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.rw-land { aspect-ratio: 3 / 2; }
-.rw-port { aspect-ratio: 2 / 3; }
-
-.rw-gimg {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.rw-gitem::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .5);
-  opacity: 0;
-  transition: opacity .8s;
-}
-
-.rw-gitem:hover::after,
-.rw-gitem:focus::after { opacity: 1; }
-
-@media (max-width: 767px) {
-  .rw-gallery { --rw-gap: 5px; }
-}
-
 /* Foto zoom out perlahan dengan titik fokus tetap di tengah */
 .rw-kb {
   animation: rw-kb 8s ease-in-out infinite alternate;
@@ -483,4 +432,24 @@ input, textarea, select, [contenteditable="true"] {
 }
 img, video {
   -webkit-user-drag: none;
+}
+
+
+
+/* Jarak kredit di antara nama pasangan dan logo penutup. */
+.rw-made-with {
+  margin-top: 0;
+  text-align: center;
+  color: #fff;
+  font: 500 12px/1.3 "DM Sans", sans-serif;
+}
+
+/* Naikkan rangkaian penutup dari kalimat undangan hingga kredit. */
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-6a743242,
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-24939ddb,
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-5fea3b94,
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-76739906,
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-2aec1426,
+.elementor-28049 .elementor-element-5bfcb615 .elementor-element-71385b62 {
+  transform: translateY(-3rem);
 }
