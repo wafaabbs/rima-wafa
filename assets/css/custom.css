@@ -99,6 +99,79 @@
   .rw-kb { animation: none; }
 }
 
+/* ---------- Menu navigasi bawah ---------- */
+.satumomen_menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+  background: rgba(255, 252, 243, .94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, .08);
+  transform: translateY(110%);
+  transition: transform .5s ease;
+}
+
+body.rw-menu-on .satumomen_menu { transform: none; }
+
+.satumomen_menu_list {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 0 8px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.satumomen_menu_list::-webkit-scrollbar { display: none; }
+
+.satumomen_menu_item { flex: 0 0 auto; }
+
+.satumomen_menu_item button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 62px;
+  padding: 7px 8px 6px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #6b6760;
+  font: 500 10px/1.2 "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+}
+
+.satumomen_menu_item .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.satumomen_menu_item.active button {
+  background: #1d1d1b;
+  color: #fff;
+}
+
+.satumomen_menu_item button:focus-visible {
+  outline: 2px solid #1d1d1b;
+  outline-offset: 1px;
+}
+
+/* tombol musik naik supaya tidak tertutup menu */
+.elementor-element-3d9a2f { transition: bottom .5s ease; }
+body.rw-menu-on .elementor-element.elementor-element-3d9a2f {
+  bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+}
+
 /* ---------- Ucapan live chat ---------- */
 #rw-wishes {
   --rw-ink: #1d1d1b;
