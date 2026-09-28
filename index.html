@@ -9,7 +9,7 @@
     var parts = location.pathname.split('/').filter(Boolean);
     var last = parts.length ? parts[parts.length - 1] : '';
     try { last = decodeURIComponent(last); } catch (e) {}
-    if (!/^(rima-wafa|index\.html|404\.html)$/i.test(last)) name = last.replace(/[-_+]+/g, ' ');
+    if (!/^(rima-wafa|index\.html|404\.html|admin610780)$/i.test(last)) name = last.replace(/[-_+]+/g, ' ');
   }
   window.RW_GUEST = name.replace(/\s+/g, ' ').trim().slice(0, 60);
 })();
@@ -1746,6 +1746,7 @@ var mPS2id_params = {"instances":{"mPS2id_instance_0":{"selector":"a[href*='#']:
 	</ul>
 </nav>
 <script src="assets/vendor/lib/supabase.js" id="supabase-js"></script>
+<script src="assets/js/monitoring.js" id="rw-monitoring-js"></script>
 <script src="assets/js/ucapan.js" id="rw-ucapan-js"></script>
 <script src="assets/js/foto-fit.js" id="rw-foto-fit-js"></script>
 <script src="assets/js/menu.js" id="rw-menu-js"></script>
