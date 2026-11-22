@@ -4,7 +4,20 @@
 	<meta charset="UTF-8">
 <script id="rw-guest-js">
 (function () {
+  // Nama tamu: ?to=Nama, lalu #Nama, lalu /Nama (lewat 404.html).
   var name = new URLSearchParams(location.search).get('to') || '';
+  if (!name) {
+    var hash = location.hash.slice(1);
+    try { hash = decodeURIComponent(hash); } catch (e) {}
+    // #open dipakai tombol "Buka Undangan", bukan nama tamu
+    if (hash && !/^open$/i.test(hash)) {
+      name = hash.replace(/[-_+]+/g, ' ');
+      try { sessionStorage.setItem('rw_guest', name); } catch (e) {}
+    } else if (hash) {
+      // setelah tombol diklik URL jadi #open; kalau di-refresh, pakai nama yang tadi
+      try { name = sessionStorage.getItem('rw_guest') || ''; } catch (e) {}
+    }
+  }
   if (!name) {
     var parts = location.pathname.split('/').filter(Boolean);
     var last = parts.length ? parts[parts.length - 1] : '';
@@ -22,12 +35,12 @@
         	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 
 <title>💍 Rima & Wafa</title>
-<meta name="description" content="&quot;Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.&quot; (QS. Ar-Rum : 21)&#10;&#10;𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳"/>
+<meta name="description" content="𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳"/>
 <meta name="robots" content="nofollow, noindex, noarchive, nosnippet, noimageindex"/>
 <meta property="og:locale" content="id_ID" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="💍 Rima &amp; Wafa" />
-<meta property="og:description" content="&quot;Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.&quot; (QS. Ar-Rum : 21)&#10;&#10;𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳" />
+<meta property="og:description" content="𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳" />
 <meta property="og:url" content="https://rima-wafa.my.id/" />
 <meta property="og:site_name" content="Rima &amp; Wafa" />
 <meta property="og:image" content="https://rima-wafa.my.id/assets/foto/og-image.jpg" />
@@ -38,7 +51,7 @@
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="💍 Rima &amp; Wafa" />
-<meta name="twitter:description" content="&quot;Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.&quot; (QS. Ar-Rum : 21)&#10;&#10;𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳" />
+<meta name="twitter:description" content="𝗪𝗲𝗱𝗱𝗶𝗻𝗴 𝗢𝗳 𝗥𝗶𝗺𝗮 𝗱𝗮𝗻 𝗪𝗮𝗳𝗮&#10;𝗔𝗵𝗮𝗱, 𝟭𝟬 𝗝𝗮𝗻𝘂𝗮𝗿𝗶 𝟮𝟬𝟮𝟳" />
 <meta name="twitter:image" content="https://rima-wafa.my.id/assets/foto/og-image.jpg" />
 
 <link rel='stylesheet' id='bdt-uikit-css' href='assets/vendor/wp-content/plugins/weddingpress/assets/css/modules/bdt-uikit.css' media='all' />
